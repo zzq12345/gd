@@ -1,7 +1,7 @@
 import asyncio
 from playwright.async_api import async_playwright
 
-M3U_FILE_PATH = "gdtv.m3u"  # 保持与工作流一致
+M3U_FILE_PATH = "gdtv.m3u"
 
 CHANNELS = [
     ("广东珠江", "https://m.gdtv.cn/tvChannelDetail/44"),
@@ -37,17 +37,16 @@ async def fetch_m3u8_for_channel(context, url: str, retries=3) -> str:
 
         try:
             print(f"[尝试 {attempt}] 加载 {url}")
+            # 仅等待 DOM 加载完成，不等待网络空闲
             await page.goto(url, wait_until="domcontentloaded", timeout=15000)
-            # 等待网络空闲，确保所有XHR/Fetch完成
-            await page.wait_for_load_state("networkidle", timeout=10000)
 
-            # 等待最多 15 秒捕获 .m3u8
-            for _ in range(150):
+            # 轮询最多 20 秒（200 × 0.1s）
+            for _ in range(200):
                 if m3u8_link:
                     break
                 await asyncio.sleep(0.1)
 
-            # 如果仍未捕获，尝试从 video 标签获取 src
+            # 若未捕获，尝试从 video 标签获取
             if not m3u8_link:
                 video_src = await page.evaluate('''
                     () => {
@@ -74,7 +73,7 @@ async def main():
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
-            viewport={"width": 375, "height": 812}  # 典型手机视口
+            viewport={"width": 375, "height": 812}
         )
 
         results = []
@@ -85,6 +84,8 @@ async def main():
                 results.append((name, m3u8))
             else:
                 print(f"❌ {name} 获取失败（已重试）")
+            # 增加短暂延迟，避免请求过频
+            await asyncio.sleep(0.5)
 
         await browser.close()
 
