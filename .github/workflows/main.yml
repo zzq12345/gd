@@ -2,44 +2,37 @@ name: Update GDTV M3U
 
 on:
   schedule:
-    # 根據 cron 表達式，設定每小時執行一次 (使用 UTC 時間，0 代表整點)
     - cron: '0 * * * *'
-  workflow_dispatch: # 允許在 GitHub 網頁上點擊 "Run workflow" 手動觸發
+  workflow_dispatch:
 
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
-    
-    # 給予 Actions 寫入儲存庫的權限 (這很重要，否則無法 push)
     permissions:
       contents: write
 
     steps:
-      - name: 1. 檢出程式碼 (Checkout Repository)
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 2. 設定 Python 環境
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: 3. 安裝依賴套件 (Playwright)
+      - name: Install dependencies
         run: |
           pip install playwright
           playwright install chromium
 
-      - name: 4. 執行抓取腳本
+      - name: Run script
         run: python update_source.py
 
-      - name: 5. 提交並推送 (Commit and Push)
+      - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # 將更新後的檔案加入 git 追蹤
           git add gdtv.m3u
-          
-          # 檢查是否有檔案變動，如果有才執行 commit
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
