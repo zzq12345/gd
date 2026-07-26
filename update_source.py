@@ -23,12 +23,14 @@ CHANNELS = [
     ("广东生活", "https://m.gdtv.cn/tvChannelDetail/102"),
 ]
 
+# 播放时需要添加的 Referer（固定为网站根域名）
+REFERER = "https://m.gdtv.cn"
+
 async def fetch_m3u8_for_channel(context, url: str, retries=3) -> str:
     for attempt in range(1, retries + 1):
         page = await context.new_page()
         m3u8_link = None
 
-        # 同时监听 request 和 response（更全面）
         def on_request(request):
             nonlocal m3u8_link
             if m3u8_link is None and ".m3u8" in request.url:
@@ -44,16 +46,15 @@ async def fetch_m3u8_for_channel(context, url: str, retries=3) -> str:
 
         try:
             print(f"[尝试 {attempt}] 加载 {url}")
-            # 增加超时至 30 秒
             await page.goto(url, wait_until="domcontentloaded", timeout=30000)
 
-            # 轮询 25 秒（250 × 0.1s）
+            # 轮询 25 秒
             for _ in range(250):
                 if m3u8_link:
                     break
                 await asyncio.sleep(0.1)
 
-            # 若未捕获，尝试从 video 标签获取
+            # 从 video 标签回退
             if not m3u8_link:
                 video_src = await page.evaluate('''
                     () => {
@@ -91,14 +92,19 @@ async def main():
                 results.append((name, m3u8))
             else:
                 print(f"❌ {name} 获取失败（已重试）")
-            await asyncio.sleep(0.5)  # 避免请求过频
+            await asyncio.sleep(0.5)
 
         await browser.close()
 
     if results:
         lines = ["#EXTM3U"]
+        # 添加一个全局注释，说明 Referer 设置（可选）
+        lines.append('# 注意：若播放时出现403，请确保播放器携带 Referer: https://m.gdtv.cn')
+        lines.append('# VLC 用户会自动使用下方 #EXTVLCOPT 指令')
         for name, url in results:
             lines.append(f'#EXTINF:-1 tvg-name="{name}" group-title="广东台",{name}')
+            # 为 VLC 添加自定义 Referer
+            lines.append(f'#EXTVLCOPT:http-referrer={REFERER}')
             lines.append(url)
         with open(M3U_FILE_PATH, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
