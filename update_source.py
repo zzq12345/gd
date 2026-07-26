@@ -1,9 +1,8 @@
 import asyncio
 from playwright.async_api import async_playwright
 
-M3U_FILE_PATH = "gdtv_all.m3u"
+M3U_FILE_PATH = "gdtv.m3u"  # 保持与工作流一致
 
-# 频道列表：名称 -> URL
 CHANNELS = [
     ("广东珠江", "https://m.gdtv.cn/tvChannelDetail/44"),
     ("广东卫视", "https://m.gdtv.cn/tvChannelDetail/43"),
@@ -24,57 +23,74 @@ CHANNELS = [
     ("广东生活", "https://m.gdtv.cn/tvChannelDetail/102"),
 ]
 
-async def fetch_m3u8_for_channel(context, url: str) -> str:
-    """在给定浏览器上下文中访问页面，返回第一个 .m3u8 请求的 URL"""
-    page = await context.new_page()
-    m3u8_link = None
+async def fetch_m3u8_for_channel(context, url: str, retries=3) -> str:
+    for attempt in range(1, retries + 1):
+        page = await context.new_page()
+        m3u8_link = None
 
-    def intercept_request(request):
-        nonlocal m3u8_link
-        if ".m3u8" in request.url and m3u8_link is None:
-            m3u8_link = request.url
+        def on_response(response):
+            nonlocal m3u8_link
+            if m3u8_link is None and ".m3u8" in response.url:
+                m3u8_link = response.url
 
-    page.on("request", intercept_request)
+        page.on("response", on_response)
 
-    try:
-        print(f"正在加载: {url}")
-        await page.goto(url, wait_until="domcontentloaded", timeout=15000)
-        # 等待最多 10 秒，直到捕获到 m3u8 链接
-        for _ in range(100):
+        try:
+            print(f"[尝试 {attempt}] 加载 {url}")
+            await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+            # 等待网络空闲，确保所有XHR/Fetch完成
+            await page.wait_for_load_state("networkidle", timeout=10000)
+
+            # 等待最多 15 秒捕获 .m3u8
+            for _ in range(150):
+                if m3u8_link:
+                    break
+                await asyncio.sleep(0.1)
+
+            # 如果仍未捕获，尝试从 video 标签获取 src
+            if not m3u8_link:
+                video_src = await page.evaluate('''
+                    () => {
+                        const video = document.querySelector('video');
+                        return video ? video.src : null;
+                    }
+                ''')
+                if video_src and ".m3u8" in video_src:
+                    m3u8_link = video_src
+
             if m3u8_link:
-                break
-            await asyncio.sleep(0.1)
-    except Exception as e:
-        print(f"抓取 {url} 出错: {e}")
-    finally:
-        await page.close()
+                return m3u8_link
 
-    return m3u8_link
+            print(f"  第 {attempt} 次尝试未获取到链接")
+        except Exception as e:
+            print(f"  第 {attempt} 次尝试出错: {e}")
+        finally:
+            await page.close()
+
+    return None
 
 async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        # 使用移动端 UA，模拟手机访问
         context = await browser.new_context(
-            user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+            user_agent="Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+            viewport={"width": 375, "height": 812}  # 典型手机视口
         )
 
-        results = []  # (频道名, m3u8链接)
+        results = []
         for name, url in CHANNELS:
             m3u8 = await fetch_m3u8_for_channel(context, url)
             if m3u8:
-                print(f"✅ {name} 获取成功: {m3u8}")
+                print(f"✅ {name} -> {m3u8}")
                 results.append((name, m3u8))
             else:
-                print(f"❌ {name} 获取失败")
+                print(f"❌ {name} 获取失败（已重试）")
 
         await browser.close()
 
-    # 生成 M3U 文件
     if results:
         lines = ["#EXTM3U"]
         for name, url in results:
-            # tvg-name 和 group-title 可自行调整
             lines.append(f'#EXTINF:-1 tvg-name="{name}" group-title="广东台",{name}')
             lines.append(url)
         with open(M3U_FILE_PATH, "w", encoding="utf-8") as f:
