@@ -28,20 +28,27 @@ async def fetch_m3u8_for_channel(context, url: str, retries=3) -> str:
         page = await context.new_page()
         m3u8_link = None
 
+        # 同时监听 request 和 response（更全面）
+        def on_request(request):
+            nonlocal m3u8_link
+            if m3u8_link is None and ".m3u8" in request.url:
+                m3u8_link = request.url
+
         def on_response(response):
             nonlocal m3u8_link
             if m3u8_link is None and ".m3u8" in response.url:
                 m3u8_link = response.url
 
+        page.on("request", on_request)
         page.on("response", on_response)
 
         try:
             print(f"[尝试 {attempt}] 加载 {url}")
-            # 仅等待 DOM 加载完成，不等待网络空闲
-            await page.goto(url, wait_until="domcontentloaded", timeout=15000)
+            # 增加超时至 30 秒
+            await page.goto(url, wait_until="domcontentloaded", timeout=30000)
 
-            # 轮询最多 20 秒（200 × 0.1s）
-            for _ in range(200):
+            # 轮询 25 秒（250 × 0.1s）
+            for _ in range(250):
                 if m3u8_link:
                     break
                 await asyncio.sleep(0.1)
@@ -84,8 +91,7 @@ async def main():
                 results.append((name, m3u8))
             else:
                 print(f"❌ {name} 获取失败（已重试）")
-            # 增加短暂延迟，避免请求过频
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.5)  # 避免请求过频
 
         await browser.close()
 
