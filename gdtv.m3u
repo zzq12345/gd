@@ -1,9 +1,54 @@
 #EXTM3U
 # 注意：若播放时出现403，请确保播放器携带 Referer: https://m.gdtv.cn
 # VLC 用户会自动使用下方 #EXTVLCOPT 指令
+#EXTINF:-1 tvg-name="广东珠江" group-title="广东台",广东珠江
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdzj.m3u8?t_token=203aa5f1ce253e42bf88b79e137d2a03-7t5ubmlK%2BuF1p%2F79LuHDNmvPOvOn9gdo%2FjIuSAtQaYbE9%2F1J3wlJkXEhqc3avksooOmDFh543BLcShrGMz1hMekfLfpreLyzYF6lxT3ykDvUU9zOYHuutgmmG2gCh1JDsJtbTHKeuElFOWLQ%2BX8MRGrzT5IcD4%2FYYQubFRkfXMZvAeo9d%2BisRSaEF63HSNtUbDMdGmiJLk%2FE8P4vaE3gUZdsIBz%2BvVhqYsLPbngx66DKGv%2B7QKkV14Oros9aEKJvoNQs7DaW3DsjkifZ%2BqYzGczMiuN6Ic%2B3mcpjdWUr88I%3D
+#EXTINF:-1 tvg-name="广东卫视" group-title="广东台",广东卫视
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdws.m3u8?t_token=7b37259c9bbacd2447ab62f21d5c24b8-zmqUbltB8imbjltJH%2BzkdsxlaL%2Bxy47eNpiHBolZHZsZ9uBbDAhA4HzNOiT6%2FvH5OXGvc6D4PUINKTR983rACP2lBe9z2ax6fiasLyh8gY0aAsS%2FVQEzR2pCTUtlCsHP3qSQ75S%2Be1ppZRGi9%2B9bTlPv7ObdFR9RF0tz5IbSZxpfEAarHM%2BWW3wN1PA8ZPhIGMdt9KtP5gTtsKcAE%2FP3g4p0BUwRgDffKDXejSI7t6LjlSDAAx53gPEAJGoLQJeSociLZVWFyslM0d41ksePxq80kHgv2%2BoHIeyhEAq%2BJnI%3D
+#EXTINF:-1 tvg-name="广东新闻" group-title="广东台",广东新闻
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/xwpd.m3u8?t_token=805497b2f53985f69bbe3598232592f7-tBts7GuTJVXItdzttfxH%2FsBFdNNG9KGljDW6FwL%2FFeQY76vd3Xj%2F8XMm1cNGdr05WKIilRIqn63aUs78vvJnlcYvR09qcsFjbXFNOPsW%2FGi0p2AwA3hkswu2auRNOJZNZ%2FjMDtj2n5u7n8ArfXg9ZkRte6Gzmb%2Bhp6ZVpRM5I388MrbHeDJnFk%2B0JrlE4Urq5Q3at5f7Pla0sz0cDPSKELUwnxDdnQ12Ds9EFw1Tg0y5iZVorOytlSjowJ%2B42Z%2FWG1oXGkuhptIgSIflbQC3pk63OHqOVUnbdSj%2FaAYdVOA%3D
+#EXTINF:-1 tvg-name="广东民生" group-title="广东台",广东民生
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdgg.m3u8?t_token=752775989b9e2bf5fe5c7e6624a33f68-mFF1MV4sfddGNf2n1KMwyYEHMGr7JTF%2BXe2FDyCtPIQ5qWer9BnpwhtjehKYoOXUcdCBUiUsL42PL3nbt%2Fm2x7Z4%2BiIR84%2FZXB9lB6gGONnwp0RwFT8jcsl6sdKGjqVjnWR0Zx8qGxUy8PLufVmV0e0sWIs5aGZimUX0VfFBACcvx3vL%2FkqOqQnBBZ0FjaS3IBU0VrpyYGqpIs98HLb%2FY4lSM8u1IBO1spoNoBwUw0ALpXx5EssDUOjQllz%2FvkmL2ZZIZzXKPEtyrSjvWuxNoS%2FMNMqNk%2FI7cjSexDMAOtA%3D
+#EXTINF:-1 tvg-name="广东体育" group-title="广东台",广东体育
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdty.m3u8?t_token=f3384c95c4eae69914fd0d4b3dfa6318-RUu6ct2c9cxxO1xJcDypNpO2eHF4udiPSBggG7tqOM9XTZZyyoivC%2BfI4zg0LIBE0Ns9%2FRMVKsKS26E2it%2BFZR%2FtUUWwBfWJ9uCTUvKfwXyITRoQS6Uensj0tjXy2cQCz1GIL6qIR3Kr%2F%2BdrH5nQiWhZaLHF6AOIvrj%2Biu0SbWfvvVEa1IrorOs%2FqGXNgVfE7dN27J6SfZWIUSdVxU62Y2%2F8RgS0RloEY5nZswqxWyxe%2BxY%2FsNsd6Z62hy5FNqQV7zDSM6xUzD1wi%2FlyAaOo9lYAENN%2FnjIg58D6Q2%2B3JOM%3D
 #EXTINF:-1 tvg-name="大湾区卫视" group-title="广东台",大湾区卫视
 #EXTVLCOPT:http-referrer=https://m.gdtv.cn
-https://tcdn.itouchtv.cn/live/nfws.m3u8?t_token=8b2c7c02adadb2f8df1214850cb55963-DOos8j2ywJSQGMiXia%2BuDSwI1oykDn2vG2mB9JBhtMhTTdrLVcv82t9fzENsnn1y6FqDsWuOG06LLKxzkXmS%2F9GfK7jBlyJDCaDRqcoZ1kXLVK72xmehgcla73gS5%2B6KpDc%2FDTTa7JjlgRphtllapLVCw57OYN8lMOzfg95igTC%2BymzE%2FKUYmQ2eeT2rF4YF3yKnA6PoNgHvC%2Fe6uPt5%2FJF7HljNQB9O9rgg8%2BukF41FmcuaaEscRWQ8WvzKh56U82AsRvwBoEKdTGccttyIFFYRU4noms3H1ujwRfLCZaQ%3D
+https://tcdn.itouchtv.cn/live/nfws.m3u8?t_token=cc23837f6a53c21162001459cf9c557a-h3GJLDkg40Nt2GuzApVoifGVIghIyrubhazDN09mhg6N1MGzmTPcprqfq9oRNMdbhgCfk%2BdXGwaksGx8CvRF2WV0%2FDL%2Bi6s%2BMWWNAJpAPy7sDY3bdvbwQ9xpBkceN7rg5IYwkjLCRECwENXVJLLczpqu5DNu1BDepmzLp%2FI35S1tpHGBDUbuOynLUoTqOahsuADLbhGAxplAK4LOGfWI2NdR0b6eiiJDobsGcZc3j3V9YEawV1NWL2YzTTE8sBEpvypHvjnPM7OyO%2BKXCrXE7JmH9CG5VnTc3itchm5%2BpYU%3D
+#EXTINF:-1 tvg-name="大湾区卫视海外版" group-title="广东台",大湾区卫视海外版
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdgj.m3u8?t_token=17921255f1e632bee582bb096918af45-8Roj9L4%2FqfS4oLkTNqu2zd3KzcznYmoDF5vaLHHLXjbjIef71tPKkk2poK%2BwvZsf5bCb%2BLw01YH98JI43KFMDrZ54JaCyeCWeILlfKuYQ7UnBBa1OWX7mA2SC9A8eGoaKAuH3TF%2B2KCM3ylTwT4UFVf56RS8nJSQRDue27e3bSrCd1GuLgHHfmXms3K8jl32LH9AvV7TxDeCyGQGXGQZU1yKi29ViMQ39eXGRqDrb2gn02IiJo9ot61FFE%2FRYr0IkvuKZkSVUoZrGkn%2BG4y7XmYY%2FJVpnoIU6kH0ACzrSFU%3D
+#EXTINF:-1 tvg-name="广东影视" group-title="广东台",广东影视
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdys.m3u8?t_token=604a01d3644a9964752ac539dc5be3e3-Fos1XfPoFWuohVVABeFqL1oZDOdZsSLSMBgW7rBEaS%2B7toPl9%2F%2FIV9SAl8aFF9EGCxgt%2FbJngJCCOp01TRP%2FPGCmHdx4X3EM4wMGUHrZC%2FMPicEdoWbudH8jsbGq7FcY7UGG1B2e3hgC%2Bwx1mOof2S%2Fa37XG0XRRkgzExUFJ8uZEIsOzaP2uMWcqBmr4THe5DZUul9XOZReNg7YFpSQDDc8orKP3YGa19ffVDNG5r1bN3%2BF1%2BK7q1rO6OFwQpfLwfb%2BwVoc04MEe1ZrzqSqJyUrlkt%2B6xlQvoxeJC1H35Ro%3D
+#EXTINF:-1 tvg-name="4K超高清" group-title="广东台",4K超高清
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdzy.m3u8?t_token=c371f71f8c21c097c1e84c2b693db56e-wDi7yuNWTasZF3gS6iK6SLoUmg1qhLxXXN5mSnZ%2BTPmic8MQ0JzpdkS9KeYoy%2BYDLX8wa4st5CwUt4%2B47usxvFOqgmpZInoMODjQ2brgnM7nkNfXZrYOE%2B6rV9a%2Fy1185k%2F5fDvld2tcQCO9ePR%2Fl7ux35QaIcQ6ixZF4MT%2FhWb4eIMb%2BAtJZQG9IBhZA0LytGH0YYrP%2B7VsgJd2%2BBbIiQk%2FAH46mYhK79IxHf02anioMhsJiOPb%2BHiogh39WiDq9ppoUedSpiUnEvw9W4wJdb3eEe1rMPNzq3NsyUu1O1Q%3D
+#EXTINF:-1 tvg-name="广东少儿" group-title="广东台",广东少儿
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/gdse.m3u8?t_token=6ac24a71ed6620acb8107a7af80e2f32-mVcvZG1TUR1H7EzomYB650UOS3iW6ZtePqJJss4e0RA6y8GroPqQ%2Boz2DAe%2FnwNPjmsWkhmbaIWNjirNv5u3zn2HybPhJdi2hdl65GUhY1CkSNqiEOrqLrzZN08gXN9%2BT6gqFXzceNpqhB2KceobQbAR6CRNC0oZrrUWS1userTSAlDQEDL5tZDhuyyWVDfpfMVTCLSw7odVyvPJg8PxIBad6FBy12Dz37P2sYLUyWs9IlKgGnw6s33ThZiHOhoEg%2FlT0g2uG%2BGtwEQmow1HxS4wyMJCOGm2MJ2SV%2FGO6pE%3D
+#EXTINF:-1 tvg-name="嘉禾卡通" group-title="广东台",嘉禾卡通
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/jjkt.m3u8?t_token=70cb1e595f3511327c6e027469d1d026-FemgS5xAxUFYZiz6aiLtkHfxEXD818261%2FUaRSYsPNOIwggvy316kZcLuPvffBjvo7tpWTGfdH8hanQ0YmQdxFFxsLjbR%2BB9nPZOwDpcCmV20qlPC7sQ6jG6w34IZgT05vjgxLm0T3N0w7Jw5D8i64C%2FSdTqSdXvPTnzz0WYeM39%2Bg8KRQWG1qPyrJpGkL04ZtZsUw2ZAUMZFlPvBzTHQgbzBYT2tqj%2FLtBBvjLeQqPJd87S%2BPou8oXeLPD2yAGKkQ5U62oS9oyyBFyNSiHkoKXcBSGbFGNrOkw2NLGrpqY%3D
 #EXTINF:-1 tvg-name="岭南戏曲" group-title="广东台",岭南戏曲
 #EXTVLCOPT:http-referrer=https://m.gdtv.cn
-https://tcdn.itouchtv.cn/live/lnxq.m3u8?t_token=e61b73aae71d44b99bca0cb43a14e132-odtsFydiGVKGZl%2Fe2hzyTPpKQfH68q9BB2ZP0RBhY%2F3FQMST09dwNOpM2Z02a6eJiICX9p04s%2BLjmaSt5xt%2Bl%2FHbwqF3VUzk6jFOjQ%2BEYXqNDDom6Q2mUiOo%2BFPj%2BMJf5ocd7rBl4FH33nnvrxlU9%2BODP%2FZyC2IE0JcFfcMYB7RwVqTLpn8p1odVIr1jUDwTKYoe9zln8jV7eR7SJx2PkrHgOycYRLT9n%2BANYcFupvj6vhAqJFa22J9hrpDUHKktLJjar6QNPhr1yRSOzkCKbXSlPSIOdjKdsj1n6ByTIKI%3D
+https://tcdn.itouchtv.cn/live/lnxq.m3u8?t_token=0131381de87306c7d9681d91f24a7e0e-AmiQr7ExjL7518l94ETJuYIlwxDMomtb05aYePZ2coQWoOdglMITuNxgmD%2FFx3M5rp%2BwgzuCIlSs%2FD61TtPekG38X2Jt3yzMpkRVsrAzndtHbX4YiFh3FK9I57HrRR%2FtqgbuM4Cl5oDQkwn2IiCwrUqEED5Eg%2BhLQYGciIqH%2BbqIQZHzk%2Fjk%2F3RHUkkehcY8wmmTQKQaUPazfB8WJzcmB5gzs0Tgl%2BbuPYXTzFML4r7Jy%2BAANmpRwY3wWQ75MJCHfJOUuFCmt%2FDXUdDCn5HSdm%2FW5npUsl83PcRcuQD7BN4%3D
+#EXTINF:-1 tvg-name="广东移动" group-title="广东台",广东移动
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/ydpd.m3u8?t_token=f9dce6cb9765514a4901632f9f741deb-YzR1dpEmlUBb8vrjZDm%2BR9X6b%2Fmxtl7Jt72X0%2B%2F74%2FiJTDyUeY42%2FMm%2BTWiOl60F8%2BFUd%2FDAAeUbgbSi6gy2DeiDwl88HqxAmmcu7P4H5zkuuVHPreOf5Ro3i4%2BHZIdGcn9XyhdVCLywfbfS5AIZmeFZAhEPgVdOLHuLPZbQ071UOBOSX3rl3Yb0CuznR%2FQhI0vyf%2BWNj76asrrH7PsIvjdLoCpE6G14vmmJEsj0VLisFBbppr48cOvH%2Bc%2BgjFGvW41IBvZMZukhfSULhf%2BJjYEByt0hVKzCL5BMFeryhZI%3D
+#EXTINF:-1 tvg-name="广东经典剧" group-title="广东台",广东经典剧
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/lizhi.m3u8?t_token=8cc3fcf88e961d6e64e675b7d048a4be-90gHryfNMeB0Fb7oOEUtfNs4l%2FXpzIAGXaI6qxW59kzv8GTMezPiLADsKoet7g4V%2Fw81%2B6zmfuYLK8a4%2FVhyu0BTnZMTfs9aANjYWTX4oYLDFLwQRYjrLH9crU3Fn2xRKySvWDIwLUpjhMMvFOnyn6Wtp9o6yJXhr%2BrRDljasQ6wBMNMXriAvvy9ncQUmKwVr6ChoTKOFwcj6xZDWhkLMs1qgndT7gCb6XqXoPzTZNcq%2FDXi7A8X%2BcMnpXka4BB3Y%2BV8AMOtxwyp1oljRiMJp4jKIw56BKAxeiJcNvz8MAM%3D
+#EXTINF:-1 tvg-name="广东纪录片" group-title="广东台",广东纪录片
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://lbplay.grtn.cn/live/jilupian.m3u8?auth_key=1785325784-0-0-24957f690afd8352e60c2ce9a2b50c70
+#EXTINF:-1 tvg-name="广东健康" group-title="广东台",广东健康
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/health.m3u8?t_token=9a8bec23f9c01d946bcb42735f21ec61-B1S2VGyntIOc60HcEc5PRyjXEvyxAP3ZhtfVkZVURcQuZP2EmnITgbCi3ZXZ5K9pVJ3tXAdimaSA2WSLdaA9wQddZeFBmdcznl0jEHhnCKWeOUNpvkZQlUsS2N5iKC7i%2BJIiPydsFoAzNBn%2FTDdNh4SQYxF%2BSwdjv8RY12v8mqqE%2Fu6S0U5WIRrIXIscK9AdUXpg3V8x2FgOs8SzKA8FPpxBbSnmFUo%2BcZwdjNHm5%2F6EkFz6Ihh712j5PV9cGiZ0ees58JY4dWuRN%2Fn7VDZukPXV%2FoXvj%2BTbafaUJAOIk2c%3D
+#EXTINF:-1 tvg-name="广东生活" group-title="广东台",广东生活
+#EXTVLCOPT:http-referrer=https://m.gdtv.cn
+https://tcdn.itouchtv.cn/live/life.m3u8?t_token=2d0a1659b0851b1198263874dd5ad16f-Emcds6%2B%2FBXZI4KSKq2loo7QqGINQHDkimq1d8IHu5uZSJ7t2Pr7xXjTIoqzFkXedmLL8kZJXRHvm9aCS71szpRJfxbIt09Try0tOfF5nbZqGuPYhQ5%2BEgGYUgC3QJkScjkdHDruAQmUoNGPyO8qf%2FD7tiOrHi%2B4f%2BXpIMuvidCPk9TDs%2BWpeZE4aFvvUaFOyRIz4Y%2F5CkxMb9XUz7ss5sGlD9PIcfDfI3oRaCA4NIvmLTyeUI4vZH6x2kX9yhCMQyUvuARI7Rlm8QPhyQrfoB1GvZqc5UBOlHxczfF7Xs3E%3D
